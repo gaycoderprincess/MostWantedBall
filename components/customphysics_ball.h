@@ -8,7 +8,7 @@ namespace CustomPhysicsBall {
 	float fMoveSpeedHigh = 20.0;
 	float fBrakeSpeed = 2.0;
 	float fMaxMoveSpeed = 50.0;
-	float fBallSize = 3.0;
+	float fBallSize = 2.5;
 	float fBallSizeMenu = 1.0;
 
 	float fFwdMoveSpeed = 1.0;
@@ -161,23 +161,13 @@ namespace CustomPhysicsBall {
 				ply->SetPosition(&v);
 				v = {vel.x, vel.y, vel.z};
 				ply->SetLinearVelocity(&v);
-				v = {avel.x, avel.y, avel.z};
-				ply->SetAngularVelocity(&v);
+				ply->SetAngularVelocity(&UMath::Vector3::kZero);
 
-				UMath::Vector4 q = {quat.v.x, quat.v.y, quat.v.z, quat.s};
-				ply->SetOrientation(&q);
-				//auto m = b3MakeMatrixFromQuat(quat);
-				//UMath::Matrix4 mat;
-				//mat.x.x = m.cx.x;
-				//mat.x.y = m.cx.y;
-				//mat.x.z = m.cx.z;
-				//mat.y.x = m.cy.x;
-				//mat.y.y = m.cy.y;
-				//mat.y.z = m.cy.z;
-				//mat.z.x = m.cz.x;
-				//mat.z.y = m.cz.y;
-				//mat.z.z = m.cz.z;
-				//ply->SetOrientation(&mat);
+				if (v.length() > 0.01) {
+					v.Normalize();
+					auto mat = NyaMat4x4::LookAt(v);
+					ply->SetOrientation((UMath::Matrix4*)&mat);
+				}
 			}
 
 			auto mat = PrepareCameraMatrix(GetLocalPlayerCamera());
