@@ -2,6 +2,8 @@
 
 A mod for Need for Speed: Most Wanted that turns you into a gigantic spinning ball
 
+<img src="https://www.nfsaddons.com/file_pictures/big/11287_4.jpg" />
+
 ## Installation
 
 - Make sure you have v1.3 of the game, as this is the only version this plugin is compatible with. (exe size of 6029312 bytes)
