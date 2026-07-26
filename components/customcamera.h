@@ -8,7 +8,7 @@ namespace CustomCamera {
 	IRigidBody* pTargetPlayerBodySecondPerson = nullptr;
 
 	bool IsBallin() {
-		return CustomPhysicsBall::bEnabled;
+		return CustomPhysicsBall::bEnabled && !CustomPhysicsBall::bDoReset;
 	}
 
 	bool bSecondPersonOrbitMode = true;
