@@ -181,16 +181,16 @@ namespace CustomPhysicsBall {
 			side.Normalize();
 
 			auto stick = NyaVec3(GetPadKeyState(NYA_PAD_KEY_LSTICK_X) / 32767.0,GetPadKeyState(NYA_PAD_KEY_LSTICK_Y) / -32767.0,0);
-			if (IsKeyPressed(VK_LEFT)) {
+			if (IsKeyPressed(VK_LEFT) || IsKeyPressed('A')) {
 				stick.x = -1.0;
 			}
-			if (IsKeyPressed(VK_RIGHT)) {
+			if (IsKeyPressed(VK_RIGHT) || IsKeyPressed('D')) {
 				stick.x = 1.0;
 			}
-			if (IsKeyPressed(VK_UP)) {
+			if (IsKeyPressed(VK_UP) || IsKeyPressed('W')) {
 				stick.y = -1.0;
 			}
-			if (IsKeyPressed(VK_DOWN)) {
+			if (IsKeyPressed(VK_DOWN) || IsKeyPressed('S')) {
 				stick.y = 1.0;
 			}
 
